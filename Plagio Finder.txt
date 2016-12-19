@@ -1,0 +1,182 @@
+Abstract—This electronic document is a “live” template and already defines the components of your paper [title, text, heads, etc.] in its style sheet.  *CRITICAL:  Do Not Use Symbols, Special Characters, or Math in Paper Title or Abstract. (Abstract)
+Keywords—component; formatting; style; styling; insert (key words)
+ 
+I.	INTRODUCTION 
+The performance testing is an activity to determine the responsiveness, throughput, reliability, and/or scalability of a system given a workload. Usually, the performance test can assess release readiness by predict performance characteristics, infrastructure adequacy by evaluating and determining the stability and capacity of the system, software performance by providing comparisons between current and desired performance characteristics and improve efficiency by analyzing behavior under different load levels and identifying bottlenecks in application.
+A possible performance approach is divide in seven activities.
+•	Identify the Test Environment - Identify the physical test environment and the production environment as well as the tools and resources available to the test team. The physical environment includes hardware, software, and network configurations. Having a thorough understanding of the entire test environment at the outset enables more efficient test design and planning.
+•	Identify Performance Acceptance Criteria - Identify the response time, throughput, and resource utilization goals and constraints. In general, response time is a user concern, throughput is a business concern, and resource utilization is a system concern.
+•	Plan and Design Test - Identify key scenarios, determine variability among representative users and how to simulate that variability, define test data, and establish metrics to be collected.
+•	Configure the Test Environment - Prepare the test environment, tools, and resources necessary to execute each strategy as features and components become available for test.
+•	Implement the Test Design - Develop the performance tests in accordance with the test design.
+•	Execute the Test - Run and monitor your tests. Validate the tests, test data, and results collection. Execute validated tests for analysis while monitoring the test and the test environment.
+•	Analyze Results, Report, and Retest - Consolidate and share results data. Analyze the data both individually and as a cross-functional team. Reprioritize the remaining tests and re-execute them as needed.
+Performance tests are usually described as belonging to one of the following three categories: 
+•	Performance testing.  This type of testing determines or validates the speed, scalability, and/or stability characteristics of the system or application under test. Performance is concerned with achieving response times, throughput, and resource utilization levels that meet the performance objectives for the project or product. In this guide, performance testing represents the superset of all of the other subcategories of performance-related testing.
+•	Load testing.  This subcategory of performance testing is focused on determining or validating performance characteristics of the system or application under test when subjected to workloads and load volumes anticipated during production operations.    
+•	Stress testing.  This subcategory of performance testing is focused on determining or validating performance characteristics of the system or application under test when subjected to conditions beyond those anticipated during production operations. Stress tests may also include tests focused on determining or validating performance characteristics of the system or application under test when subjected to other stressful conditions, such as limited memory, insufficient disk space, or server failure. These tests are designed to determine under what conditions an application will fail, how it will fail, and what indicators can be monitored to warn of an impending failure.
+When end-to-end performance testing reveals system or application characteristics that are deemed unacceptable, many teams shift their focus from performance testing to performance tuning, to discover what is necessary to make the application perform acceptably. Although tuning is not the direct responsibility of most performance testers, the tuning process is most effective when it is a cooperative effort between all of those concerned with the application or system under test. The performance testing results can be acceptable but still want to focus on tuning to reduce the amount of resources being used.
+Creating a baseline is the process of running a set of tests to capture performance metric data for the purpose of evaluating the effectiveness of subsequent performance-improving changes to the system or application. A critical aspect of a baseline is that all characteristics and configuration options except those specifically being varied for comparison must remain invariant. The baseline is used to compare against your system performance or against an industry standard. This process is called benchmarking. 
+It is important to understand the different performance test types in order to reduce risks, minimize cost, and know when to apply the appropriate test over the course of a given performance-testing project. In Table 1 is presented the benefits by key performance test types.
+Table 1 - Matrix of Benefits by Key Performance Test Types
+Term	Benefits	Challenges and Areas Not Addressed
+Performance test	Determines the speed, scalability and stability characteristics of an application, thereby providing an input to making sound business decisions. Focuses on determining if the user of the system will be satisfied with the performance characteristics of the application. Identifies mismatches between performance related expectations and reality. Supports tuning, capacity planning, and optimization efforts.	May not detect some functional defects that only appear under load. If not carefully designed and validated, may only be indicative of performance characteristics in a very small number of production scenarios. Unless tests are conducted on the production hardware, from the same machines the users will be using, there will always be a degree of uncertainty in the results.
+Load test	Determines the throughput required to support the anticipated peak production load. Determines the adequacy of a hardware environment. Evaluates the adequacy of a load balancer. Detects concurrency issues. Detects functionality errors under load. Collects data for scalability and capacity-planning purposes. Helps to determine how many users the application can handle before performance is compromised. Helps to determine how much load the hardware can handle before resource utilization limits are exceeded.	Is not designed to primarily focus on speed of response. Results should only be used for comparison with other related load tests.
+Stress test	Determines if data can be corrupted by overstressing the system. Provides an estimate of how far beyond the target load an application can go before causing failures and errors in addition to slowness. Allows you to establish application-monitoring triggers to warn of impending failures. Ensures that security vulnerabilities are not opened up by stressful conditions. Determines the side effects of common hardware or supporting application failures. Helps to determine what kinds of failures are most valuable to plan for.	Because stress tests are unrealistic by design, some stakeholders may dismiss test results. It is often difficult to know how much stress is worth applying. It is possible to cause application and/or network failures that may result in significant disruption if not isolated to the test environment.
+Performance testing is indispensable for managing certain significant business risks. For example, if your Web site cannot handle the volume of traffic it receives, your customers will shop somewhere else. Beyond identifying the obvious risks, performance testing can be a useful way of detecting many other potential problems. While performance testing does not replace other types of testing, it can reveal information relevant to usability, functionality, security, and corporate image that is difficult to obtain in other ways.
+II.	PERFORMANCE TESTING APPROACHES
+Performance testing is a complex activity that cannot effectively be shaped into a “one-size-fits-all” or even a “one-size-fits-most” approach. Projects, environments, business drivers, acceptance criteria, technologies, timelines, legal implications, and available skills and tools simply make any notion of a common, universal approach unrealistic. Is always important to understand that performance testing has to be applied in a way that best fits the project context. The core activities can be seen in the same way. They are presented as a sequence but some can be done in parallel. Depending on the size and complexity of the project, an iterative test cycle of some of these steps can be implemented. The core activities can be seen in Figure 1.
+ 
+Figure 1 - Core performance testing activities
+A.	Identify the Test Environment
+1)	Input
+a)	Logical and physical production architecture.
+b)	Logical and physical test architecture.
+c)	Available tools.
+2)	Output
+a)	Comparison of test and production environments.
+b)	Environment-related concerns.
+c)	Determination of whether additional tools are required.
+The environment in which your performance tests will be executed, along with the tools and associated hardware necessary to execute the performance tests, constitute the test environment. Under ideal conditions, if the goal is to determine the performance characteristics of the application in production, the test environment is an exact replica of the production environment but with the addition of load-generation and resource-monitoring tools. The key factor in identifying your test environment is to completely understand the similarities and differences between the test and production environments. Some critical factors to consider are: 
+•	Hardware - configurations and machine characteristics.
+•	Network - configuration, end-user network location and architecture
+•	Tools - load generation tool limitations and impact of monitoring tools.
+•	Software - already running on machine, storage capacity, logging levels.
+•	External factors - additional traffic on network, updates and backups in process and interactions with other systems.
+B.	Identify Performance Acceptance Criteria
+1)	Input
+a)	Client expectations.
+b)	Risks to be mitigated.
+c)	Business requirements.
+2)	Output
+a)	Performance-testing success criteria.
+b)	Performance goals and requirements.
+c)	Key areas of investigation.
+d)	Key performance  and business indicators.
+In order to access the capabilities of the system, it generally makes sense to start identifying, or at least estimating, the desired performance characteristics of the application early in the development life cycle. This can be accomplished most simply by noting the performance characteristics that your users and stakeholders equate with good performance. The classes of characteristics that are frequently used are: 
+•	Response time - For example, the product catalog must be displayed in less than three seconds. 
+•	Throughput - For example, the system must support 25 book orders per second.
+•	Resource utilization - For example, processor utilization is not more than 75 percent. Other important resources that need to be considered for setting objectives are memory, disk input/output (I/O), and network I/O.
+C.	Plan and Design Test
+1)	Input
+a)	Available application features and/or components.
+b)	Application usage scenarios.
+c)	Unit tests.
+d)	Performance acceptance criteria.
+2)	Output
+a)	Conceptual strategy.
+b)	Test execution prerequisites.
+c)	Tools and resources required.
+d)	Application usage models to be simulated.
+e)	Test data required to implement tests.
+Planning and designing performance tests involves identifying key usage scenarios, determining appropriate variability across users, identifying and generating test data, and specifying the metrics to be collected. Key usage scenarios for the application typically surface during the process of identifying the desired performance characteristics of the application. When identified, captured, and reported correctly, metrics provide information about how your application’s performance compares to your desired performance characteristics. In addition, metrics can help you identify problem areas and bottlenecks within your application. Consider the following key points when planning and designing tests:
+•	Realistic test designs are sensitive to dependencies outside the control of the system, such as humans, network activity, and other systems interacting with the application.
+•	Realistic test designs are based on what you expect to find in real-world use, not theories or projections. 
+•	Realistic test designs produce more credible results and thus enhance the value of performance testing.
+•	Component-level performance tests are integral parts of realistic testing.
+•	Realistic test designs can be more costly and time-consuming to implement, but they provide far more accuracy for the business and stakeholders.
+•	Extrapolating performance results from unrealistic tests can create damaging inaccuracies as the system scope increases, and frequently lead to poor decisions.
+•	Involve the developers and administrators in the process of determining which metrics are likely to add value and which method best integrates the capturing of those metrics into the test.
+•	Beware of allowing your tools to influence your test design. Better tests almost always result from designing tests on the assumption that they can be executed and then adapting the test or the tool when that assumption is proven false, rather than by not designing particular tests based on the assumption that you do not have access to a tool to execute the test.
+D.	Configure the Test Environment
+1)	Input
+a)	Conceptual strategy.
+b)	Available tools.
+c)	Designed tests.
+2)	Output
+a)	Configured load-generation and resource-monitoring tools.
+b)	Environment ready for performance testing.
+Preparing the test environment, tools, and resources for test design implementation and test execution prior to features and components becoming available for test can significantly increase the amount of testing that can be accomplished during the time those features and components are available. Additionally, plan to periodically reconfigure, update, add to, or otherwise enhance your load-generation environment and associated tools throughout the project. Consider the following key points when configuring the test environment:
+•	Determine how much load you can generate before the load generators reach a bottleneck. Typically, load generators encounter bottlenecks first in memory and then in the processor.
+•	Although it may seem like a commonsense practice, it is important to verify that system clocks are synchronized on all of the machines from which resource data will be collected. Doing so can save you significant time and prevent you from having to dispose of the data entirely and repeat the tests after synchronizing the system clocks. 
+•	Validate the accuracy of load test execution against hardware components such as switches and network cards. For example, ensure the correct full-duplex mode operation and correct emulation of user latency and bandwidth.
+•	Validate the accuracy of load test execution related to server clusters in load-balanced configuration. Consider using load-testing techniques to avoid affinity of clients to servers due to their using the same IP address. Most load-generation tools offer the ability to simulate usage of different IP addresses across load-test generators.
+•	Monitor resource utilization (CPU, network, memory, disk and transactions per time) across servers in the load-balanced configuration during a load test to validate that the load is distributed.
+E.	Implement the Test Design
+1)	Input
+a)	Conceptual strategy.
+b)	Available tools.
+c)	Designed tests.
+2)	Output
+a)	Configured load-generation and resource-monitoring tools.
+b)	Environment ready for performance testing.
+Regardless of the tool that you are using, creating a performance test typically involves scripting a single usage scenario and then enhancing that scenario and combining it with other scenarios to ultimately represent a complete workload model. Load-generation tools inevitably lag behind evolving technologies and practices.
+Consider the following key points when implementing the test design:
+•	Ensure that test data feeds are implemented correctly. Test data feeds are data repositories in the form of databases, text files, in-memory variables, or spreadsheets that are used to simulate parameter replacement during a load test. For example, even if the application database test repository contains the full production set, your load test might only need to simulate a subset of products being bought by users due to a scenario involving, for example, a new product or marketing campaign. Test data feeds may be a subset of production data repositories.
+•	Ensure that application data feeds are implemented correctly in the database and other application components. Application data feeds are data repositories, such as product or order databases, that are consumed by the application being tested. The key user scenarios, run by the load test scripts may consume a subset of this data. 
+•	Ensure that validation of transactions is implemented correctly. Many transactions are reported successful by the Web server, but they fail to complete correctly. Examples of validation are, database entries inserted with correct number of rows, product information being returned, correct content returned in html data to the clients etc.
+•	Ensure hidden fields or other special data are handled correctly. This refers to data returned by Web server that needs to be resubmitted in subsequent request, like session IDs or product ID that needs to be incremented before passing it to the next request.
+•	Validate the monitoring of key performance indicators (KPIs).
+•	Add pertinent indicators to facilitate articulating business performance.
+•	If the request accepts parameters, ensure that the parameter data is populated properly with variables and/or unique data to avoid any server-side caching.
+•	If the tool does not do so automatically, consider adding a wrapper around the requests in the test script in order to measure the request response time.
+•	It is generally worth taking the time to make the script match your designed test, rather than changing the designed test to save scripting time.
+•	Significant value can be gained from evaluating the output data collected from executed tests against expectations in order to test or validate script development.
+F.	Execute Tests
+1)	Input
+a)	Task execution plan.
+b)	Available tools/environment.
+c)	Available application features and/or components.
+d)	Validated, executable tests.
+2)	Output
+a)	Test execution results.
+Executing tests is what most people envision when they think about performance testing. It makes sense that the process, flow, and technical details of test execution are extremely dependent on your tools, environment, and project context. Test execution can be viewed as a combination of the following sub-tasks:
+•	Coordinate test execution and monitoring with the team.
+•	Validate tests, configurations, and the state of the environments and data.
+•	Begin test execution.
+•	While the test is running, monitor and validate scripts, systems, and data.
+•	Upon test completion, quickly review the results for obvious indications that the test was flawed.
+•	Archive the tests, test data, results, and other information necessary to repeat the test later if needed.
+•	Log start and end times, the name of the result data, and so on. This will allow you to identify your data sequentially after your test is done.
+Consider the following key points when executing the test:
+•	Validate test executions for data updates, such as orders in the database that have been completed.
+•	Validate if the load-test script is using the correct data values, such as product and order identifiers, in order to realistically simulate the business scenario. 
+•	Whenever possible, limit test execution cycles to one to two days each. Review and reprioritize after each cycle.
+•	If at all possible, execute every test three times. Note that the results of first-time tests can be affected by loading Dynamic-Link Libraries (DLLs), populating server-side caches, or initializing scripts and other resources required by the code under test. If the results of the second and third iterations are not highly similar, execute the test again. Try to determine what factors account for the difference.
+•	Observe your test during execution and pay close attention to any behavior you feel is unusual. Your instincts are usually right, or at least valuable indicators.
+•	No matter how far in advance a test is scheduled, give the team 30-minute and 5minute warnings before launching the test (or starting the day’s testing) if you are using a shared test environment. Additionally, inform the team whenever you are not going to be executing for more than one hour in succession so that you do not impede the completion of their tasks.
+•	Do not process data, write reports, or draw diagrams on your load-generating machine while generating a load, because this can skew the results of your test.
+•	Turn off any active virus-scanning on load-generating machines during testing to minimize the likelihood of unintentionally skewing the results of your test.
+•	While load is being generated, access the system manually from a machine outside of the load-generation environment during test execution so that you can compare your observations with the results data at a later time.
+•	Remember to simulate ramp-up and cool-down periods appropriately.
+•	Do not throw away the first iteration because of application script compilation, Web server cache building, or other similar reasons. Instead, measure this iteration separately so that you will know what the first user after a system-wide reboot can expect.
+•	Test execution is never really finished, but eventually you will reach a point of diminishing returns on a particular test. When you stop obtaining valuable information, move on to other tests.
+•	If you feel you are not making progress in understanding an observed issue, it may be more efficient to eliminate one or more variables or potential causes and then run the test again.
+G.	Analyze Results, Report, and Retest
+1)	Input
+a)	Task execution results.
+b)	Performance acceptance criteria.
+c)	Risks, concerns, and issues.
+2)	Output
+a)	Results analysis.
+b)	Recommendations.
+c)	Reports.
+Managers and stakeholders need more than just the results from various tests — they need conclusions, as well as consolidated data that supports those conclusions. Technical team members also need more than just results — they need analysis, comparisons, and details behind how the results were obtained. Team members of all types get value from performance results being shared more frequently.
+Most reports fall into one of the following two categories:
+•	Technical Reports - Description of the test, including workload model and test environment.  o Easily digestible data with minimal pre-processing. o Access to the complete data set and test conditions. o Short statements of observations, concerns, questions, and requests for collaboration.
+•	Stakeholder Reports - Criteria to which the results relate. o Intuitive, visual representations of the most relevant data. o Brief verbal summaries of the chart or graph in terms of criteria. o Intuitive, visual representations of the workload model and test environment.  o Access to associated technical reports, complete data sets, and test conditions. o Summaries of observations, concerns, and recommendations.
+Consider the following important points when analyzing the data returned by your performance test:
+•	Analyze the data both individually and as part of a collaborative, cross-functional technical team. Report visually.
+•	Analyze the captured data and compare the results against the metric’s acceptable or expected level to determine whether the performance of the application being tested shows a trend toward or away from the performance objectives. Use the right statistics.
+•	If the test fails, a diagnosis and tuning activity are generally warranted.
+•	If you fix any bottlenecks, repeat the test to validate the fix.
+•	Performance-testing results will often enable the team to analyze components at a deep level and correlate the information back to the real world with proper test design and usage analysis.
+•	Performance test results should enable informed architecture and business decisions.
+•	Frequently, the analysis will reveal that, in order to completely understand the results of a particular test, additional metrics will need to be captured during subsequent test execution cycles.
+•	Immediately share test results and make raw data available to your entire team.
+•	Talk to the consumers of the data to validate that the test achieved the desired results and that the data means what you think it means.
+•	Modify the test to get new, better, or different information if the results do not represent what the test was defined to determine.
+•	Use current results to set priorities for the next test.
+•	Collecting metrics frequently produces very large volumes of data. Although it is tempting to reduce the amount of data, always exercise caution when using data reduction techniques because valuable data can be lost.
+III.	MANAGING AN AGILE PERFORMANCE TEST CYCLE
+This template, modified in MS Word 2007 and saved as  a “Word 97-2003 Document” for the PC, provides authors with most of.
+IV.	CONCLUSION
+This template, modified in MS Word 2007 and saved as  a “Word 97-2003 Document” for the PC, provides authors with most of.
+ACKNOWLEDGMENT
+This template, modified in MS Word 2007 and saved as  a “Word 97-2003 Document” for the PC, provides authors with most of.
+REFERENCES
+This template, modified in MS Word 2007 and saved as  a “Word 97-2003 Document” for the PC, provides authors with most of.
+ 
+
+
+
